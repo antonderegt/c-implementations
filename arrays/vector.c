@@ -13,8 +13,13 @@ void initVector(struct vector *v, int *arr, int arrSize) {
     }
     v->array = initArray; 
     v->size = arrSize;
+    v->capacity = size;
 }
 
 int size(struct vector *v) {
     return v->size;
+}
+
+int capacity(struct vector *v) {
+    return v->capacity;
 }
