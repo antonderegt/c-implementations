@@ -36,4 +36,6 @@ void deleteAt(vector *v, int index);
 
 int find(vector *v, int item);
 
+void findRemove(vector *v, int item);
+
 #endif

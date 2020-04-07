@@ -38,6 +38,13 @@ int main() {
     assert(foundIndex == 0);
     assert(notFound == -1);
 
+    push(&v, 88);
+    push(&v, 88);
+    assert(size(&v) == 22);
+    findRemove(&v, 88);
+    assert(find(&v, 88) == -1);
+    assert(size(&v) == 20);
+
     printf("at: %d, size: %d, capacity: %d, isEmpty: %d\n", at(&v, 0), size(&v), capacity(&v), isEmpty(&v));
 
     return 0;

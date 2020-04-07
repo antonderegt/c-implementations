@@ -90,3 +90,10 @@ int find(vector *v, int item) {
     }
     return -1;
 }
+
+void findRemove(vector *v, int item) {
+    int index;
+    while((index = find(v, item)) != -1) {
+        deleteAt(v, index);
+    }
+}
