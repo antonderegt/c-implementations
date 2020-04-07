@@ -22,3 +22,7 @@ int size(vector *v) {
 int capacity(vector *v) {
     return v->capacity;
 }
+
+bool isEmpty(vector *v) {
+    return !v->size;
+}
