@@ -76,10 +76,15 @@ void prepend(vector *v, int item) {
 }
 
 void deleteAt(vector *v, int index) {
-    for(int i = index; i < v->size-1; i++) {
-        v->array[i] = v->array[i+1];
+    if(v->size - 1 == index) {
+        pop(v);
+    } 
+    else if(index < v->size) {
+        for(int i = index; i < v->size-1; i++) {
+            v->array[i] = v->array[i+1];
+        }
+        v->size--;
     }
-    v->size--;
 }
 
 int find(vector *v, int item) {
