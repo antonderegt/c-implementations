@@ -30,4 +30,6 @@ int pop(vector *v);
 
 void insert(vector *v, int index, int item);
 
+void prepend(vector *v, int item);
+
 #endif

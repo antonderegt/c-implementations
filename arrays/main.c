@@ -24,6 +24,11 @@ int main() {
     insert(&v, 5, 100);
     assert(at(&v, 5) == 100);
     assert(size(&v) == 20);
+
+    prepend(&v, 99);
+    assert(at(&v, 0) == 99);
+    assert(size(&v) == 21);
+
     printf("at: %d, size: %d, capacity: %d, isEmpty: %d\n", at(&v, 0), size(&v), capacity(&v), isEmpty(&v));
 
     return 0;

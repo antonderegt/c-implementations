@@ -70,3 +70,7 @@ void insert(vector *v, int index, int item) {
         insert(v, index, item);
     } 
 }
+
+void prepend(vector *v, int item) {
+    insert(v, 0, item);
+}
