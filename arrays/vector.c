@@ -5,7 +5,7 @@ vector *initVector(int arrSize) {
     while(size < arrSize) {
         size = 2 * size;
     }
-    vector *v;
+    vector *v = malloc(sizeof(vector));
     int *initArray = (int*) malloc(size * sizeof(int));
     
     v->array = initArray; 
@@ -50,7 +50,11 @@ void resize(vector *v, int newCapacity){
 }
 
 int pop(vector *v) {
-    return v->array[--v->size];
+    int popValue = v->array[--v->size];
+    if(v->size <= (v->capacity/4)) {
+        resize(v, v->size/2);
+    }
+    return popValue;
 }
 
 void insert(vector *v, int index, int item) {
@@ -63,6 +67,7 @@ void insert(vector *v, int index, int item) {
         for(i = index+1; i < v->size+1; i++) {
             tempArr[i] = v->array[i];
         }
+        free(v->array);
         v->array = tempArr;
         v->size++;
     } else {
@@ -84,6 +89,9 @@ void deleteAt(vector *v, int index) {
             v->array[i] = v->array[i+1];
         }
         v->size--;
+        if(v->size <= (v->capacity/4)) {
+            resize(v, v->size/2);
+        }
     }
 }
 
