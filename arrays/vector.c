@@ -48,3 +48,7 @@ void resize(vector *v, int newCapacity){
     v->array = (int *)realloc(v->array, newCapacity);
     v->capacity = newCapacity;
 }
+
+int pop(vector *v) {
+    return v->array[--v->size];
+}

@@ -17,6 +17,10 @@ int main() {
     assert(isEmpty(&v) == 0);
     assert(at(&v, 0) == 0);
 
+    int popValue = pop(&v);
+    assert(popValue == 19);
+    assert(size(&v) == 19);
+
     printf("at: %d, size: %d, capacity: %d, isEmpty: %d\n", at(&v, 0), size(&v), capacity(&v), isEmpty(&v));
 
     return 0;

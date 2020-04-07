@@ -26,4 +26,6 @@ void push(vector *v, int item);
 
 void resize(vector *v, int newCapacity);
 
+int pop(vector *v);
+
 #endif
