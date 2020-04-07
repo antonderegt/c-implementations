@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "vector.h"
 
-void initVector(struct vector *v, int *arr, int arrSize) {
+void initVector(vector *v, int *arr, int arrSize) {
     int size = 16, i;
     while(size < arrSize) {
         size = 2 * size;
@@ -16,10 +16,10 @@ void initVector(struct vector *v, int *arr, int arrSize) {
     v->capacity = size;
 }
 
-int size(struct vector *v) {
+int size(vector *v) {
     return v->size;
 }
 
-int capacity(struct vector *v) {
+int capacity(vector *v) {
     return v->capacity;
 }

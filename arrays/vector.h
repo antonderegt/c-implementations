@@ -7,10 +7,12 @@ struct vector {
     int capacity;
 };
 
-void initVector(struct vector *v, int *array, int arrSize);
+typedef struct vector vector;
 
-int size(struct vector *v);
+void initVector(vector *v, int *array, int arrSize);
 
-int capacity(struct vector *v);
+int size(vector *v);
+
+int capacity(vector *v);
 
 #endif
