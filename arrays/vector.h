@@ -22,4 +22,8 @@ bool isEmpty(vector *v);
 
 int at(vector *v, int index);
 
+void push(vector *v, int item);
+
+void resize(vector *v, int newCapacity);
+
 #endif

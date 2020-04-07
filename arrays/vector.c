@@ -9,7 +9,7 @@ vector initVector(int arrSize) {
     int *initArray = (int*) malloc(size * sizeof(int));
     
     v.array = initArray; 
-    v.size = arrSize;
+    v.size = 0;
     v.capacity = size;
 
     return v;
@@ -33,4 +33,18 @@ int at(vector *v, int index) {
     } else {
         return -1;
     }
+}
+
+void push(vector *v, int item) {
+    if(v->size < v->capacity) {
+        v->array[v->size++] = item;
+    } else {
+        resize(v, v->capacity * 2);
+        push(v, item);
+    }
+}
+
+void resize(vector *v, int newCapacity){
+    v->array = (int *)realloc(v->array, newCapacity);
+    v->capacity = newCapacity;
 }
