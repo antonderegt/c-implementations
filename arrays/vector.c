@@ -1,16 +1,16 @@
 #include "vector.h"
 
-vector initVector(int arrSize) {
+vector *initVector(int arrSize) {
     int size = 16;
     while(size < arrSize) {
         size = 2 * size;
     }
-    vector v;
+    vector *v;
     int *initArray = (int*) malloc(size * sizeof(int));
     
-    v.array = initArray; 
-    v.size = 0;
-    v.capacity = size;
+    v->array = initArray; 
+    v->size = 0;
+    v->capacity = size;
 
     return v;
 }

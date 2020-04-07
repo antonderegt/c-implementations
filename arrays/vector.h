@@ -12,7 +12,7 @@ struct vector {
 
 typedef struct vector vector;
 
-vector initVector(int arrSize);
+vector *initVector(int arrSize);
 
 int size(vector *v);
 
