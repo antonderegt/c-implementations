@@ -1,5 +1,8 @@
 #ifndef VECTOR_H
 #define VECTOR_H
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
 
 struct vector {
     int *array;
@@ -9,10 +12,12 @@ struct vector {
 
 typedef struct vector vector;
 
-void initVector(vector *v, int *array, int arrSize);
+vector initVector(int arrSize);
 
 int size(vector *v);
 
 int capacity(vector *v);
+
+bool isEmpty(vector *v);
 
 #endif
