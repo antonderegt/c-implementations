@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+int minCapacity = 16;
+
 struct vector {
     int *array;
     int size;

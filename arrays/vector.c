@@ -1,7 +1,7 @@
 #include "vector.h"
 
 vector *initVector(int arrSize) {
-    int size = 16;
+    int size = minCapacity;
     while(size < arrSize) {
         size = 2 * size;
     }
@@ -51,7 +51,7 @@ void resize(vector *v, int newCapacity){
 
 int pop(vector *v) {
     int popValue = v->array[--v->size];
-    if(v->size <= (v->capacity/4)) {
+    if(v->size <= (v->capacity/4) && v->size/2 >= minCapacity) {
         resize(v, v->size/2);
     }
     return popValue;
@@ -89,7 +89,7 @@ void deleteAt(vector *v, int index) {
             v->array[i] = v->array[i+1];
         }
         v->size--;
-        if(v->size <= (v->capacity/4)) {
+        if(v->size <= (v->capacity/4) && v->size/2 >= minCapacity) {
             resize(v, v->size/2);
         }
     }
