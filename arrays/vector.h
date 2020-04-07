@@ -28,4 +28,6 @@ void resize(vector *v, int newCapacity);
 
 int pop(vector *v);
 
+void insert(vector *v, int index, int item);
+
 #endif

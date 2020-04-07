@@ -21,6 +21,9 @@ int main() {
     assert(popValue == 19);
     assert(size(&v) == 19);
 
+    insert(&v, 5, 100);
+    assert(at(&v, 5) == 100);
+    assert(size(&v) == 20);
     printf("at: %d, size: %d, capacity: %d, isEmpty: %d\n", at(&v, 0), size(&v), capacity(&v), isEmpty(&v));
 
     return 0;

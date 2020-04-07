@@ -52,3 +52,21 @@ void resize(vector *v, int newCapacity){
 int pop(vector *v) {
     return v->array[--v->size];
 }
+
+void insert(vector *v, int index, int item) {
+   if(v->size < v->capacity) {
+        int i, *tempArr = (int *)malloc((v->size+1) * sizeof(int));
+        for(i = 0; i < index; i++) {
+            tempArr[i] = v->array[i];
+        }
+        tempArr[index] = item;
+        for(i = index+1; i < v->size+1; i++) {
+            tempArr[i] = v->array[i];
+        }
+        v->array = tempArr;
+        v->size++;
+    } else {
+        resize(v, v->capacity * 2);
+        insert(v, index, item);
+    } 
+}
