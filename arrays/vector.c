@@ -12,4 +12,9 @@ void initVector(struct vector *v, int *arr, int arrSize) {
         initArray[i] = arr[i];
     }
     v->array = initArray; 
+    v->size = arrSize;
+}
+
+int size(struct vector *v) {
+    return v->size;
 }
