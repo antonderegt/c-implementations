@@ -26,3 +26,11 @@ int capacity(vector *v) {
 bool isEmpty(vector *v) {
     return !v->size;
 }
+
+int at(vector *v, int index) {
+    if(index < v->size) {
+        return v->array[index];
+    } else {
+        return -1;
+    }
+}

@@ -20,4 +20,6 @@ int capacity(vector *v);
 
 bool isEmpty(vector *v);
 
+int at(vector *v, int index);
+
 #endif
