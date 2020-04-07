@@ -74,3 +74,19 @@ void insert(vector *v, int index, int item) {
 void prepend(vector *v, int item) {
     insert(v, 0, item);
 }
+
+void deleteAt(vector *v, int index) {
+    for(int i = index; i < v->size-1; i++) {
+        v->array[i] = v->array[i+1];
+    }
+    v->size--;
+}
+
+int find(vector *v, int item) {
+    for(int i = 0; i < v->size; i++) {
+        if (v->array[i] == item) {
+            return i;
+        }
+    }
+    return -1;
+}

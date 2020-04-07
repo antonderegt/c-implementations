@@ -29,6 +29,15 @@ int main() {
     assert(at(&v, 0) == 99);
     assert(size(&v) == 21);
 
+    deleteAt(&v, 5);
+    assert(at(&v, 5) != 100);
+    assert(size(&v) == 20);
+
+    int foundIndex = find(&v, 99);
+    int notFound = find(&v, 100);
+    assert(foundIndex == 0);
+    assert(notFound == -1);
+
     printf("at: %d, size: %d, capacity: %d, isEmpty: %d\n", at(&v, 0), size(&v), capacity(&v), isEmpty(&v));
 
     return 0;

@@ -32,4 +32,8 @@ void insert(vector *v, int index, int item);
 
 void prepend(vector *v, int item);
 
+void deleteAt(vector *v, int index);
+
+int find(vector *v, int item);
+
 #endif
