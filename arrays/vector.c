@@ -1,5 +1,7 @@
 #include "vector.h"
 
+const int minCapacity = 16;
+
 vector *initVector(int arrSize) {
     int size = minCapacity;
     while(size < arrSize) {
@@ -58,17 +60,11 @@ int pop(vector *v) {
 }
 
 void insert(vector *v, int index, int item) {
-   if(v->size < v->capacity) {
-        int i, *tempArr = (int *)malloc((v->size+1) * sizeof(int));
-        for(i = 0; i < index; i++) {
-            tempArr[i] = v->array[i];
+    if(v->size < v->capacity) {
+        for(int i = v->size; i > index; i--) {
+            v->array[i] = v->array[i-1];
         }
-        tempArr[index] = item;
-        for(i = index+1; i < v->size+1; i++) {
-            tempArr[i] = v->array[i];
-        }
-        free(v->array);
-        v->array = tempArr;
+        v->array[index] = item;
         v->size++;
     } else {
         resize(v, v->capacity * 2);

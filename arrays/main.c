@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "vector.h"
 #include <assert.h>
+#include "vector.h"
 
 int main() {
     vector *v = initVector(10);
@@ -29,8 +29,8 @@ int main() {
     assert(at(v, 0) == 99);
     assert(size(v) == 21);
 
-    deleteAt(v, 5);
-    assert(at(v, 5) != 100);
+    deleteAt(v, 6);
+    assert(at(v, 6) != 100);
     assert(size(v) == 20);
 
     int foundIndex = find(v, 99);

@@ -1,10 +1,8 @@
-#ifndef VECTOR_H
-#define VECTOR_H
-#include <stdio.h>
+#ifndef VECTOR_H_CUSTOM
+#define VECTOR_H_CUSTOM
+
 #include <stdlib.h>
 #include <stdbool.h>
-
-int minCapacity = 16;
 
 struct vector {
     int *array;
