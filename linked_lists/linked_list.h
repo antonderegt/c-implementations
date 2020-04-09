@@ -15,4 +15,6 @@ linkedList * initLinkedList();
 
 bool isEmpty(linkedList *head);
 
+int size(linkedList *head);
+
 #endif

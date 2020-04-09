@@ -14,3 +14,12 @@ bool isEmpty(linkedList *head) {
     }
     return false;
 }
+
+int size(linkedList *head) {
+    int size = 0;
+    while(head->next != NULL) {
+        head = head->next;
+        size++;
+    }
+    return size;
+}
