@@ -21,4 +21,8 @@ void push_front(linkedList *head, int item);
 
 int value_at(linkedList *head, int index);
 
+int pop_front(linkedList *head);
+
+void printList(linkedList *head);
+
 #endif

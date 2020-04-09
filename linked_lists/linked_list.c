@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "linked_list.h"
 
 linkedList *initLinkedList() {
@@ -39,4 +40,18 @@ int value_at(linkedList *head, int index) {
         head = head->next;
     }
     return head->item;
+}
+
+int pop_front(linkedList *head) {
+    int popValue = head->next->item;
+    head->next = head->next->next;
+    return popValue;
+}
+
+void printList(linkedList *head) {
+    while(head->next != NULL) {
+        head = head->next;
+        printf("%d -> ", head->item);
+    }
+    printf("\n");
 }
