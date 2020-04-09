@@ -75,3 +75,7 @@ int pop_back(linkedList *head) {
     tempNode->next = NULL;
     return head->item;
 }
+
+int front(linkedList *head) {
+    return head->next->item;
+}

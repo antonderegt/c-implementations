@@ -27,6 +27,9 @@ int main() {
     val = pop_back(head);
     assert(val == 100);
 
+    val = front(head);
+    assert(val == 98);
+
     printList(head);
     return 0;
 }

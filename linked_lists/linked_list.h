@@ -29,4 +29,6 @@ void push_back(linkedList *head, int item);
 
 int pop_back(linkedList *head);
 
+int front(linkedList *head);
+
 #endif
