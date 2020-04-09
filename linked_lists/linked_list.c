@@ -112,10 +112,28 @@ void erase(linkedList *head, int index) {
 
 int value_n_from_end(linkedList *head, int n) {
     if(n > 0) {
-        int sizeOfList = size(head), i;
-        for(i = 0; i < sizeOfList - n; i++) {
-            head = head->next;
-        }
+        return get_node_at(head, size(head)-n)->item;
     }
-    return head->item;
+    return -1;
+}
+
+linkedList *get_node_at(linkedList *head, int index) {
+   for(int i = 0; i < index; i++) {
+            head = head->next;
+    }
+    return head; 
+}
+
+void reverse(linkedList *head) {
+    linkedList *prevNode = NULL;
+    linkedList *currentNode = head->next;
+    linkedList *nextNode;
+
+    while(currentNode) {
+            nextNode = currentNode->next;
+            currentNode->next = prevNode;
+            prevNode = currentNode;
+            currentNode = nextNode;
+    }
+    head->next = prevNode;
 }

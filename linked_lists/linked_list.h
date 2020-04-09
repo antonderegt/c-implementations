@@ -39,4 +39,8 @@ void erase(linkedList *head, int index);
 
 int value_n_from_end(linkedList *head, int n);
 
+linkedList *get_node_at(linkedList *head, int index);
+
+void reverse(linkedList *head);
+
 #endif

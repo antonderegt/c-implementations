@@ -41,7 +41,10 @@ int main() {
 
     assert(value_n_from_end(head, 2) == 2);
 
+    reverse(head);
+    assert(value_at(head, 0) == 0);
 
     printList(head);
+
     return 0;
 }
