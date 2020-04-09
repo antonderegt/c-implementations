@@ -19,9 +19,11 @@ int main() {
 
     val = pop_front(head);
     assert(val == 99);
+    assert(size(head) == 99);
 
-    assert(size(head) ==99);
-
+    push_back(head, 100);
+    assert(size(head) == 100);
+    
     printList(head);
     return 0;
 }

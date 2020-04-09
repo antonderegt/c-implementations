@@ -25,4 +25,6 @@ int pop_front(linkedList *head);
 
 void printList(linkedList *head);
 
+void push_back(linkedList *head, int item);
+
 #endif

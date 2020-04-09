@@ -55,3 +55,13 @@ void printList(linkedList *head) {
     }
     printf("\n");
 }
+
+void push_back(linkedList *head, int item) {
+    while(head->next != NULL){
+        head = head->next;
+    }
+    linkedList *node = (linkedList *)malloc(sizeof(linkedList));
+    node->item = item;
+    node->next = NULL;
+    head->next = node; 
+}
