@@ -1,7 +1,7 @@
 #include "linked_list.h"
 
 int main() {
-    linkedList ll;
+    linkedList *head = initLinkedList();
 
     return 0;
 }
