@@ -88,7 +88,6 @@ int back(linkedList *head) {
 }
 
 void insert_after(linkedList *head, int index, int item) {
-    int c = 0;
     for(int i = 0; i < index; i++) {
         if(head->next == NULL) {
             return;
@@ -99,4 +98,14 @@ void insert_after(linkedList *head, int index, int item) {
     newNode->item = item;
     newNode->next = head->next;
     head->next = newNode;
+}
+
+void erase(linkedList *head, int index) {
+    for(int i = 0; i < index; i++) {
+        if(head->next == NULL) {
+            return;
+        }
+        head = head->next;
+    }
+    head->next = head->next->next;
 }

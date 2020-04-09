@@ -36,6 +36,9 @@ int main() {
     insert_after(head, 50, 111);
     assert(value_at(head, 50) == 111);
 
+    erase(head, 50);
+    assert(value_at(head, 50) != 100);
+
     printList(head);
     return 0;
 }
