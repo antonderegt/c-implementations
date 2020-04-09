@@ -39,6 +39,9 @@ int main() {
     erase(head, 50);
     assert(value_at(head, 50) != 100);
 
+    assert(value_n_from_end(head, 2) == 2);
+
+
     printList(head);
     return 0;
 }

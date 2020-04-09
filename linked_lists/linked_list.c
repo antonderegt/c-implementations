@@ -109,3 +109,13 @@ void erase(linkedList *head, int index) {
     }
     head->next = head->next->next;
 }
+
+int value_n_from_end(linkedList *head, int n) {
+    if(n > 0) {
+        int sizeOfList = size(head), i;
+        for(i = 0; i < sizeOfList - n; i++) {
+            head = head->next;
+        }
+    }
+    return head->item;
+}
