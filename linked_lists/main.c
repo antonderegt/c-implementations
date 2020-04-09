@@ -24,6 +24,9 @@ int main() {
     push_back(head, 100);
     assert(size(head) == 100);
     
+    val = pop_back(head);
+    assert(val == 100);
+
     printList(head);
     return 0;
 }

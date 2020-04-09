@@ -65,3 +65,13 @@ void push_back(linkedList *head, int item) {
     node->next = NULL;
     head->next = node; 
 }
+
+int pop_back(linkedList *head) {
+   linkedList *tempNode = (linkedList *)malloc(sizeof(linkedList));
+    while(head->next != NULL) {
+        tempNode = head;
+        head = head->next;
+    }
+    tempNode->next = NULL;
+    return head->item;
+}
