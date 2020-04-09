@@ -23,3 +23,20 @@ int size(linkedList *head) {
     }
     return size;
 }
+
+void push_front(linkedList *head, int item) {
+    linkedList *node = (linkedList *)malloc(sizeof(linkedList));
+    node->item = item;
+    node->next = head->next;
+    head->next = node;
+}
+
+int value_at(linkedList *head, int index) {
+    for(int i = 0; i <= index; i++) {
+        if(head->next == NULL) {
+            return -1;
+        }
+        head = head->next;
+    }
+    return head->item;
+}

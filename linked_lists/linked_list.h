@@ -17,4 +17,8 @@ bool isEmpty(linkedList *head);
 
 int size(linkedList *head);
 
+void push_front(linkedList *head, int item);
+
+int value_at(linkedList *head, int index);
+
 #endif
