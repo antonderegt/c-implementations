@@ -44,6 +44,11 @@ int main() {
     reverse(head);
     assert(value_at(head, 0) == 0);
 
+    assert(value_at(head, 10) == 10);
+    remove_value(head, 10);
+    assert(value_at(head, 10) != 10);
+
+
     printList(head);
 
     return 0;

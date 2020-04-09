@@ -43,4 +43,6 @@ linkedList *get_node_at(linkedList *head, int index);
 
 void reverse(linkedList *head);
 
+void remove_value(linkedList *head, int item);
+
 #endif

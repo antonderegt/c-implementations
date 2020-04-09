@@ -67,12 +67,12 @@ void push_back(linkedList *head, int item) {
 }
 
 int pop_back(linkedList *head) {
-   linkedList *tempNode = (linkedList *)malloc(sizeof(linkedList));
+   linkedList *prevNode;
     while(head->next != NULL) {
-        tempNode = head;
+        prevNode = head;
         head = head->next;
     }
-    tempNode->next = NULL;
+    prevNode->next = NULL;
     return head->item;
 }
 
@@ -136,4 +136,20 @@ void reverse(linkedList *head) {
             currentNode = nextNode;
     }
     head->next = prevNode;
+}
+
+void remove_value(linkedList *head, int item) {
+    linkedList *currentNode = head;
+    linkedList *prevNode;
+
+    while (currentNode->next != NULL) {
+        prevNode = currentNode;
+        currentNode = currentNode->next;
+
+        if(currentNode->item == item) {
+            prevNode->next = currentNode->next;
+            break;
+        }
+    }
+    
 }
