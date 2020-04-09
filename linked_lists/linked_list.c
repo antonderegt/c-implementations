@@ -60,8 +60,10 @@ int pop_front(linkedList *head) {
         printf("List already empty\n");
         exit(EXIT_FAILURE);
     }
-    int popValue = head->next->item;
+    linkedList *temp = head->next;
+    int popValue = temp->item;
     head->next = head->next->next;
+    free(temp);
     return popValue;
 }
 
@@ -90,6 +92,7 @@ int pop_back(linkedList *head) {
         prevNode = head;
         head = head->next;
     }
+    free(prevNode->next);
     prevNode->next = NULL;
     return head->item;
 }
@@ -125,7 +128,9 @@ void erase(linkedList *head, int index) {
         }
         head = head->next;
     }
-    head->next = head->next->next;
+    linkedList *tempNode = head->next;
+    head->next = tempNode->next;
+    free(tempNode);
 }
 
 int value_n_from_end(linkedList *head, int n) {
@@ -166,6 +171,7 @@ void remove_value(linkedList *head, int item) {
 
         if(currentNode->item == item) {
             prevNode->next = currentNode->next;
+            free(currentNode);
             break;
         }
     }
