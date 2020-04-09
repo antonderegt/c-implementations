@@ -31,4 +31,6 @@ int pop_back(linkedList *head);
 
 int front(linkedList *head);
 
+int back(linkedList *head);
+
 #endif

@@ -30,6 +30,9 @@ int main() {
     val = front(head);
     assert(val == 98);
 
+    val = back(head);
+    assert(val == 0);
+
     printList(head);
     return 0;
 }

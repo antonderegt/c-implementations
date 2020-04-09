@@ -79,3 +79,10 @@ int pop_back(linkedList *head) {
 int front(linkedList *head) {
     return head->next->item;
 }
+
+int back(linkedList *head) {
+    while(head->next != NULL) {
+        head = head->next;
+    }
+    return head->item;
+}
