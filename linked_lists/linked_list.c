@@ -1,8 +1,17 @@
 #include <stdio.h>
 #include "linked_list.h"
 
+void check_pointer(void *p){
+    if(p == NULL) {
+        printf("Unable to allocate memory.\n");
+        exit(EXIT_FAILURE);
+    }
+}
+
 linkedList *initLinkedList() {
     linkedList *head = (linkedList *) malloc(sizeof(linkedList));
+    check_pointer(head);
+
     head->item = 0;
     head->next = NULL;
 
@@ -18,8 +27,9 @@ bool isEmpty(linkedList *head) {
 
 int size(linkedList *head) {
     int size = 0;
-    while(head->next != NULL) {
-        head = head->next;
+    linkedList *currentNode = head;
+    while(currentNode->next != NULL) {
+        currentNode = currentNode->next;
         size++;
     }
     return size;
@@ -27,6 +37,8 @@ int size(linkedList *head) {
 
 void push_front(linkedList *head, int item) {
     linkedList *node = (linkedList *)malloc(sizeof(linkedList));
+    check_pointer(node);
+
     node->item = item;
     node->next = head->next;
     head->next = node;
@@ -35,7 +47,8 @@ void push_front(linkedList *head, int item) {
 int value_at(linkedList *head, int index) {
     for(int i = 0; i <= index; i++) {
         if(head->next == NULL) {
-            return -1;
+            printf("Index %d out of bounds.\n", index);
+            exit(EXIT_FAILURE);
         }
         head = head->next;
     }
@@ -43,6 +56,10 @@ int value_at(linkedList *head, int index) {
 }
 
 int pop_front(linkedList *head) {
+    if(head->next == NULL) {
+        printf("List already empty\n");
+        exit(EXIT_FAILURE);
+    }
     int popValue = head->next->item;
     head->next = head->next->next;
     return popValue;
@@ -61,6 +78,7 @@ void push_back(linkedList *head, int item) {
         head = head->next;
     }
     linkedList *node = (linkedList *)malloc(sizeof(linkedList));
+    check_pointer(node);
     node->item = item;
     node->next = NULL;
     head->next = node; 

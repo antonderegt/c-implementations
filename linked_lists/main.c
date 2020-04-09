@@ -14,8 +14,6 @@ int main() {
 
     int val = value_at(head, 0);
     assert(val == 99);
-    val = value_at(head, 100);
-    assert(val == -1);
 
     val = pop_front(head);
     assert(val == 99);
