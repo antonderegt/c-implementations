@@ -33,4 +33,6 @@ int front(linkedList *head);
 
 int back(linkedList *head);
 
+void insert_after(linkedList *head, int index, int item);
+
 #endif

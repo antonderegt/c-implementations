@@ -86,3 +86,17 @@ int back(linkedList *head) {
     }
     return head->item;
 }
+
+void insert_after(linkedList *head, int index, int item) {
+    int c = 0;
+    for(int i = 0; i < index; i++) {
+        if(head->next == NULL) {
+            return;
+        }
+        head = head->next;
+    }
+    linkedList *newNode = (linkedList *)malloc(sizeof(linkedList)); 
+    newNode->item = item;
+    newNode->next = head->next;
+    head->next = newNode;
+}
