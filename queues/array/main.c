@@ -9,15 +9,20 @@ int main() {
     enqueue(q, 0);
     enqueue(q, 1);
     enqueue(q, 2);
-    enqueue(q, 3);
-    enqueue(q, 4);
-    enqueue(q, 5);
-    enqueue(q, 6);
-    enqueue(q, 7);
-    assert(empty(q) == false);
 
     assert(dequeue(q) == 0);
     assert(dequeue(q) == 1);
+    
+    enqueue(q, 3);
+    enqueue(q, 4);
+    
+    assert(empty(q) == false);
+
+    assert(dequeue(q) == 2);
+    assert(dequeue(q) == 3);
+    assert(dequeue(q) == 4);
+
+    assert(empty(q) == true);
 
     return 0;
 }
