@@ -15,12 +15,15 @@ int main() {
     
     enqueue(q, 3);
     enqueue(q, 4);
-    
+    enqueue(q, 5);
+
+    assert(full(q) == true); 
     assert(empty(q) == false);
 
     assert(dequeue(q) == 2);
     assert(dequeue(q) == 3);
     assert(dequeue(q) == 4);
+    assert(dequeue(q) == 5);
 
     assert(empty(q) == true);
 

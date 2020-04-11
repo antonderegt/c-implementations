@@ -17,5 +17,6 @@ queue *initQueue();
 void enqueue(queue *q, int data);
 int dequeue(queue *q);
 bool empty(queue *q);
+bool full(queue *q);
 
 #endif

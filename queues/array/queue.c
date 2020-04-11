@@ -32,3 +32,7 @@ int dequeue(queue *q) {
 bool empty(queue *q) {
     return q->head == q->tail;
 }
+
+bool full(queue *q) {
+    return q->tail + 1 == q->head;
+}
