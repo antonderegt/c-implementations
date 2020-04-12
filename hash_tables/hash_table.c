@@ -14,49 +14,62 @@ int hash(char* key, int size) {
     while(key[i] != '\0') {
         hashValue += key[i++];
     }
+    // printf("s: %s, k: %d\n", key, hashValue % size);
     return hashValue % size;
 }
 
 void add(hashTable *h, char* key, char* value) {
+    int index = hash(key, h->size);
+    while(h->data[index] != NULL) {
+        if(strcmp(h->data[index]->key, key) == 0) {
+            printf("Same key, new value\n");
+            strcpy(h->data[index]->value, value);
+            return;
+        }
+        index++;
+    }
     hashNode *newNode = (hashNode*) malloc(sizeof(hashNode));
     newNode->key = (char *) malloc(100 * sizeof(char));
     newNode->value = (char *) malloc(100 * sizeof(char));
     strcpy(newNode->key, key);
     strcpy(newNode->value, value);
-    int index = hash(key, h->size);
     h->data[index] = newNode;
 }
 
 bool exists(hashTable *h, char* key) {
-    bool exists = false;
     int index = hash(key, h->size);
-    hashNode *get = h->data[index];
-    if(get != NULL && strcmp(get->key, key) == 0) {
-        exists = true;
-        printf("Exists: %d\n",get->value[0]);
+
+    while(h->data[index] != NULL) {
+        if(strcmp(h->data[index]->key, key) == 0) {
+            return true;
+        }
+        index++;
     }
-    return exists;
+
+    return false;
 }
 
 char* get(hashTable *h, char* key) {
     int index = hash(key, h->size);
-    hashNode *get = h->data[index];
-
-    if(strcmp(get->key, key) == 0) {
-        return get->value;
+    while(h->data[index] != NULL) {
+        if(strcmp(h->data[index]->key, key) == 0) {
+            return h->data[index]->value;
+        }
+        index++;
     }
     return "";
 }
 
 void removeNode(hashTable *h, char* key) {
     int index = hash(key, h->size);
-    hashNode *get = h->data[index];
-
-    if(strcmp(get->key, key) == 0) {
-        printf("Found key %c, removing value %c.\n", get->key[0], get->value[0]);
+    while(h->data[index] != NULL) {
+        if(strcmp(h->data[index]->key, key) == 0) {
+        printf("Found key %s, removing value %s.\n", h->data[index]->key, h->data[index]->value);
         free(h->data[index]->key);
         free(h->data[index]->value);
         h->data[index]->key = "";
         h->data[index]->value = "";
+        }
+        index++;
     }
 }
