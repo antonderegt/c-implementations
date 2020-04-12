@@ -9,45 +9,54 @@ hashTable *initHashTable() {
     return hashTable;
 }
 
-int hash(int key, int size) {
-    return key % size;
+int hash(char* key, int size) {
+    int hashValue = 0, i = 0;
+    while(key[i] != '\0') {
+        hashValue += key[i++];
+    }
+    return hashValue % size;
 }
 
-void add(hashTable *h, int key, int value) {
-    hashNode *newNode = (hashNode *) malloc(sizeof(hashNode));
-    newNode->key = key;
-    newNode->value = value;
-    *(h->data + hash(key, h->size)) = newNode;
+void add(hashTable *h, char* key, char* value) {
+    hashNode *newNode = (hashNode*) malloc(sizeof(hashNode));
+    newNode->key = (char *) malloc(100 * sizeof(char));
+    newNode->value = (char *) malloc(100 * sizeof(char));
+    strcpy(newNode->key, key);
+    strcpy(newNode->value, value);
+    int index = hash(key, h->size);
+    h->data[index] = newNode;
 }
 
-bool exists(hashTable *h, int key) {
+bool exists(hashTable *h, char* key) {
     bool exists = false;
     int index = hash(key, h->size);
-    hashNode *get = *(h->data + hash(key, h->size));
-    if(get != NULL && get->key == key) {
+    hashNode *get = h->data[index];
+    if(get != NULL && strcmp(get->key, key) == 0) {
         exists = true;
-        printf("Exists: %d\n",get->value);
+        printf("Exists: %d\n",get->value[0]);
     }
     return exists;
 }
 
-int get(hashTable *h, int key) {
-    hashNode *get = *(h->data + hash(key, h->size));
+char* get(hashTable *h, char* key) {
+    int index = hash(key, h->size);
+    hashNode *get = h->data[index];
 
-    if(get->key == key) {
+    if(strcmp(get->key, key) == 0) {
         return get->value;
     }
-    return -1;
+    return "";
 }
 
-void removeNode(hashTable *h, int key) {
+void removeNode(hashTable *h, char* key) {
     int index = hash(key, h->size);
-    hashNode *get = *(h->data + index);
+    hashNode *get = h->data[index];
 
-    if(get->key == key) {
-        printf("Found key %d, removing value %d.\n", get->key, get->value);
-        free(h->data[index]);
-        h->data[index]->key = 0;
-        h->data[index]->value = 0;
+    if(strcmp(get->key, key) == 0) {
+        printf("Found key %c, removing value %c.\n", get->key[0], get->value[0]);
+        free(h->data[index]->key);
+        free(h->data[index]->value);
+        h->data[index]->key = "";
+        h->data[index]->value = "";
     }
 }

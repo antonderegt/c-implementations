@@ -6,17 +6,17 @@ int main() {
 
     hashTable *h = initHashTable();
 
-    add(h, 1500, 9999);
-    add(h, 123456, 123);
+    add(h, "Stad", "Amsterdam");
+    add(h, "Straat", "Nassaukade");
 
-    assert(exists(h, 1500) == true);
-    assert(exists(h, 1555) == false);
+    assert(exists(h, "Stad") == true);
+    assert(exists(h, "City") == false);
 
-    assert(get(h, 1500) == 9999);
+    assert(strcmp(get(h, "Stad"), "Amsterdam") == 0);
 
-    removeNode(h, 1500);
+    removeNode(h, "Stad");
 
-    assert(exists(h, 1500) == false);
+    assert(exists(h, "Stad") == false);
 
     return 0;
 }

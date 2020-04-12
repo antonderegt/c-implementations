@@ -3,10 +3,11 @@
 
 #include <stdbool.h>
 #include <stdlib.h>
+#include <string.h>
 
 struct hashNode {
-    int key;
-    int value;
+    char* key;
+    char* value;
 };
 
 struct hashTable {
@@ -18,10 +19,10 @@ typedef struct hashNode hashNode;
 typedef struct hashTable hashTable;
 
 hashTable *initHashTable();
-int hash(int key, int size);
-void add(hashTable *h, int key, int value);
-bool exists(hashTable *h, int key);
-int get(hashTable *h, int key);
-void removeNode(hashTable *h, int key);
+int hash(char* key, int size);
+void add(hashTable *h, char* key, char* value);
+bool exists(hashTable *h, char* key);
+char* get(hashTable *h, char* key);
+void removeNode(hashTable *h, char* key);
 
 #endif
