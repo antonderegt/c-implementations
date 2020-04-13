@@ -14,7 +14,6 @@ int hash(char* key, int size) {
     while(key[i] != '\0') {
         hashValue += key[i++];
     }
-    // printf("s: %s, k: %d\n", key, hashValue % size);
     return hashValue % size;
 }
 
@@ -64,11 +63,25 @@ void removeNode(hashTable *h, char* key) {
     int index = hash(key, h->size);
     while(h->data[index] != NULL) {
         if(strcmp(h->data[index]->key, key) == 0) {
-        printf("Found key %s, removing value %s.\n", h->data[index]->key, h->data[index]->value);
-        free(h->data[index]->key);
-        free(h->data[index]->value);
-        h->data[index]->key = "";
-        h->data[index]->value = "";
+            printf("Found key %s, removing value %s.\n", h->data[index]->key, h->data[index]->value);
+            free(h->data[index]->key);
+            free(h->data[index]->value);
+            h->data[index]->key = "";
+            h->data[index]->value = "";
+            int i = 1;
+            while(h->data[index + i] != NULL) {
+                if(index == hash(h->data[index + i]->key, h->size)) {
+                    h->data[index] = h->data[index + i];
+                    printf("Found another key %s, shifting value %s.\n", h->data[index + i]->key, h->data[index + i]->value);
+                    free(h->data[index + i]->key);
+                    free(h->data[index + i]->value);
+                    h->data[index + i]->key = "";
+                    h->data[index + i]->value = "";
+                    i++;
+                } else {
+                    break;
+                }    
+            }
         }
         index++;
     }

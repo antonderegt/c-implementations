@@ -14,6 +14,7 @@ int main() {
     
     // Add key with same hash value
     add(h, "Ruad", "Rotterdam");
+    add(h, "Rubc", "Den Haag");
 
     assert(exists(h, "Stad") == true);
     assert(exists(h, "Ruad") == true);
@@ -23,9 +24,6 @@ int main() {
     assert(strcmp(get(h, "Ruad"), "Rotterdam") == 0);
 
     removeNode(h, "Stad");
-    // Ruad has the same hash value as Stad, so it's index was incremented. 
-    // After removing Stad it's value is set to "". 
-    // So the remove function knows the key was used before and will continue to look for Ruad.
     removeNode(h, "Ruad");
 
     assert(exists(h, "Stad") == false);
