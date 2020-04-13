@@ -19,11 +19,17 @@ int hash(char* key, int size) {
 
 void add(hashTable *h, char* key, char* value) {
     int index = hash(key, h->size);
+
+    // Check if the index is empty, else increase index with 1
     while(h->data[index] != NULL) {
         if(strcmp(h->data[index]->key, key) == 0) {
-            printf("Same key, new value\n");
             strcpy(h->data[index]->value, value);
             return;
+        }
+        // When a hashNode gets removed it sets the key and value to "",
+        // we don't expect the key and value to be empty so we can overwrite
+        if(strcmp(h->data[index]->key, "") == 0 && strcmp(h->data[index]->value, "") == 0) {
+            break;
         }
         index++;
     }
@@ -63,16 +69,18 @@ void removeNode(hashTable *h, char* key) {
     int index = hash(key, h->size);
     while(h->data[index] != NULL) {
         if(strcmp(h->data[index]->key, key) == 0) {
-            printf("Found key %s, removing value %s.\n", h->data[index]->key, h->data[index]->value);
             free(h->data[index]->key);
             free(h->data[index]->value);
             h->data[index]->key = "";
             h->data[index]->value = "";
+
+            // When a hashNode gets removed we check whether nodes were 
+            // shifted to the right to avoid hash collisions,
+            // in that case we shift them back to the left
             int i = 1;
             while(h->data[index + i] != NULL) {
                 if(index == hash(h->data[index + i]->key, h->size)) {
                     h->data[index] = h->data[index + i];
-                    printf("Found another key %s, shifting value %s.\n", h->data[index + i]->key, h->data[index + i]->value);
                     free(h->data[index + i]->key);
                     free(h->data[index + i]->value);
                     h->data[index + i]->key = "";

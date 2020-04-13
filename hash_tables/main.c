@@ -29,5 +29,8 @@ int main() {
     assert(exists(h, "Stad") == false);
     assert(exists(h, "Ruad") == false);
 
+    add(h, "Stad", "Amsterdam");
+    assert(exists(h, "Stad") == true);
+
     return 0;
 }
