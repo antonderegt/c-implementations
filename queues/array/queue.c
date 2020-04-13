@@ -11,7 +11,7 @@ queue *initQueue() {
 }
 
 void enqueue(queue *q, int data) {
-    if(q->tail + 1 == q->head || q->tail + 1 - q->size == q->head) {
+    if(q->tail + 1 == q->head || (q->tail + 1) % q->size == q->head) {
         printf("Cannot overwrite elements\n");
         exit(EXIT_FAILURE);
     }
