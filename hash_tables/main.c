@@ -4,7 +4,7 @@
 
 int main() {
 
-    hashTable *h = initHashTable();
+    hashTable *h = initHashTable(999);
 
     // Add key value pair to hash table
     add(h, "Stad", "Ams");

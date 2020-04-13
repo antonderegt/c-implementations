@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include "hash_table.h"
 
-hashTable *initHashTable() {
+hashTable *initHashTable(int size) {
     hashTable *hashTable = malloc(sizeof(hashTable));
-    hashTable->size = 999;
-    hashTable->data = malloc(hashTable->size * sizeof(hashNode));
+    hashTable->size = size;
+    hashTable->data = malloc(size * sizeof(hashNode));
 
     return hashTable;
 }

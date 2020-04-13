@@ -18,7 +18,7 @@ struct hashTable {
 typedef struct hashNode hashNode;
 typedef struct hashTable hashTable;
 
-hashTable *initHashTable();
+hashTable *initHashTable(int size);
 int hash(char* key, int size);
 void add(hashTable *h, char* key, char* value);
 bool exists(hashTable *h, char* key);
