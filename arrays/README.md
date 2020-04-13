@@ -4,6 +4,9 @@
 ```
 cc main.c vector.c && ./a.out
 ```
+## ToDo
+
+    - Use pointer arithmatic instead of array indexing
 
 ## Functionality
     - [X] new raw data array with allocated memory
