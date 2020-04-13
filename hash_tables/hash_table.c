@@ -31,7 +31,7 @@ void add(hashTable *h, char* key, char* value) {
         if(strcmp(h->data[index]->key, "") == 0 && strcmp(h->data[index]->value, "") == 0) {
             break;
         }
-        index++;
+        index = (index + 1) % h->size;
     }
     hashNode *newNode = (hashNode*) malloc(sizeof(hashNode));
     newNode->key = (char *) malloc(100 * sizeof(char));
@@ -48,7 +48,7 @@ bool exists(hashTable *h, char* key) {
         if(strcmp(h->data[index]->key, key) == 0) {
             return true;
         }
-        index++;
+        index = (index + 1) % h->size;
     }
 
     return false;
@@ -60,7 +60,7 @@ char* get(hashTable *h, char* key) {
         if(strcmp(h->data[index]->key, key) == 0) {
             return h->data[index]->value;
         }
-        index++;
+        index = (index + 1) % h->size;
     }
     return "";
 }
@@ -77,20 +77,21 @@ void removeNode(hashTable *h, char* key) {
             // When a hashNode gets removed we check whether nodes were 
             // shifted to the right to avoid hash collisions,
             // in that case we shift them back to the left
-            int i = 1;
-            while(h->data[index + i] != NULL) {
-                if(index == hash(h->data[index + i]->key, h->size)) {
-                    h->data[index] = h->data[index + i];
-                    free(h->data[index + i]->key);
-                    free(h->data[index + i]->value);
-                    h->data[index + i]->key = "";
-                    h->data[index + i]->value = "";
-                    i++;
+            int incIndex = (index + 1) % h->size;
+            while(h->data[incIndex] != NULL) {
+
+                if(index == hash(h->data[incIndex]->key, h->size)) {
+                    h->data[index] = h->data[incIndex];
+                    free(h->data[incIndex]->key);
+                    free(h->data[incIndex]->value);
+                    h->data[incIndex]->key = "";
+                    h->data[incIndex]->value = "";
+                    incIndex = (incIndex + 1) % h->size;
                 } else {
                     break;
                 }    
             }
         }
-        index++;
+        index = (index + 1) % h->size;
     }
 }
