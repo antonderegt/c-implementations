@@ -2,7 +2,7 @@
 
 ## How to run:
 ```
-cc main.c && ./a.out
+cc main.c linked_list.c && ./a.out
 ```
 
 ## Functionality
