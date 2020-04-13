@@ -7,7 +7,7 @@ cc main.c queue.c && ./a.out
 
 ## Functionality
 
-- [X] Implement using linked-list:
+- [X] Implement using linked-list, with a tail pointer:
     - [X] enqueue(value) - adds value at position at tail
     - [X] dequeue() - returns value and removes least recently added element (front)
     - [X] empty()
