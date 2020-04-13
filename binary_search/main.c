@@ -7,6 +7,7 @@ int main() {
     int arrSize = 15;
 
     assert(binarySearch(arr, arrSize, 5) == 4);
+    assert(binarySearchRecursive(arr, 0, arrSize-1, 5) == 4);
 
     return 0;
 }
