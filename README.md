@@ -6,3 +6,4 @@ In this repo I implemented all data structures and algorithms mentioned in [Codi
 - Linked List
 - Queue
 - Hash Table
+- Binary Search
