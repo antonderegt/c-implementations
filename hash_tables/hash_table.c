@@ -11,6 +11,8 @@ hashTable *initHashTable(int size) {
 
 int hash(char* key, int size) {
     int hashValue = 0, i = 0;
+    // @TODO: Improve the hash function to give more unique results
+    // for example: hashValue += value * x;
     while(key[i] != '\0') {
         hashValue += key[i++];
     }
