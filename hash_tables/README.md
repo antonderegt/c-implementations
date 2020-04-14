@@ -5,6 +5,10 @@
 cc main.c hash_table.c && ./a.out
 ```
 
+## ToDo
+
+- Improve hash function
+
 ## Functionality
 
 - [X] implement with array using linear probing
