@@ -4,6 +4,7 @@
 int main() {
     Node* bst = NULL;
 
+    print_values(bst);
     bst = insert(bst, 20);
     bst = insert(bst, 10);
     bst = insert(bst, 30);
@@ -17,7 +18,7 @@ int main() {
 
     delete_tree(&bst);
     printf("Size: %d\n", get_node_count(bst)); 
-    // print_values(bst);
+    print_values(bst);
     assert(get_node_count(bst) == 0);
 
     return 0;

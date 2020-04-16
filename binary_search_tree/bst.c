@@ -18,15 +18,24 @@ Node* insert(Node* root, int value) {
     return root;
 }
 
-void print_values(Node* root) {
+void print_values_helper(Node* root) {
     if(root->left != NULL) {
-        print_values(root->left);
+        print_values_helper(root->left);
     }
 
     printf("%d\n", root->value);
     
     if(root->right != NULL) {
-        print_values(root->right);
+        print_values_helper(root->right);
+    }
+}
+
+void print_values(Node* root) {
+    if(root == NULL) {
+        printf("The tree is empty...\n");
+    } else {
+        printf("Printing the tree:\n");
+        print_values_helper(root);
     }
 }
 
