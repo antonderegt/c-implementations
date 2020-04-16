@@ -26,8 +26,11 @@ int main() {
 
     assert(get_height(bst) == 6);
 
-    delete_value(bst, 70);
-    assert(get_node_count(bst) == 6);
+    bst = delete_value(bst, 60);
+    bst = delete_value(bst, 50);
+    bst = delete_value(bst, 70);
+    bst = delete_value(bst, 99);
+    assert(get_node_count(bst) == 4);
 
     delete_tree(&bst);
     print_values(bst);

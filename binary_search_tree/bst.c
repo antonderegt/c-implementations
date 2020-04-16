@@ -100,16 +100,44 @@ int get_height(Node* root) {
     return 1 + max(get_node_count(root->left), get_node_count(root->right));
 }
 
-void delete_value(Node* root, int value) {
+Node* delete_value(Node* root, int value) {
     if(root == NULL) {
         printf("Value %d not in tree.\n", value);
-        return;
-    }
-
-    if(root->value == value) {
+        return root;
+    } else if(value < root->value) {
+        root->left = delete_value(root->left, value);
+    } else if(value > root->value) {
+        root->right = delete_value(root->right, value);
+    } else {
+        // Delete node if it is a leaf
         if(root->left == NULL && root->right == NULL) {
-            root = NULL;
             free(root);
+            root = NULL;
+        }
+
+        // Only left child is NULL
+        else if (root->left == NULL) {
+            Node* temp = root;
+            root = root->right;
+            free(temp);
+            temp = NULL;
+        }
+
+        // Only right child is NULL
+        else if(root->right == NULL) {
+            Node* temp = root;
+            root = root->left;
+            free(temp);
+            temp = NULL;
+        }
+
+        // Has two children
+        else {
+            int min = get_min(root->right);
+            root->value = min;
+            root->right = delete_value(root->right, min);
         }
     }
+
+    return root;
 } 
