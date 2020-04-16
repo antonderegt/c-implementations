@@ -24,6 +24,7 @@ int main() {
     assert(get_min(bst) == 10);
     assert(get_max(bst) == 70);
 
+    assert(get_height(bst) == 6);
     delete_tree(&bst);
     print_values(bst);
     assert(get_node_count(bst) == 0);

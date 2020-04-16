@@ -88,3 +88,14 @@ int get_max(Node* root) {
 
     return root->value;
 }
+
+int max(int a, int b) {
+    return a > b ? a : b;
+}
+
+int get_height(Node* root) {
+    if(root == NULL) {
+        return 0;
+    } 
+    return 1 + max(get_node_count(root->left), get_node_count(root->right));
+}
