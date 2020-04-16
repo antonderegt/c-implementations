@@ -9,7 +9,7 @@ cc main.c bst.c && ./a.out
 - [X] insert // insert value into tree
 - [X] get_node_count // get count of values stored
 - [X] print_values // prints the values in the tree, from min to max
-- [ ] delete_tree
+- [X] delete_tree
 - [ ] is_in_tree // returns true if given value exists in the tree
 - [ ] get_height // returns the height in nodes (single node's height is 1)
 - [ ] get_min // returns the minimum value stored in the tree
