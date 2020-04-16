@@ -36,3 +36,13 @@ int get_node_count(Node* root) {
     } 
     return 1 + get_node_count(root->left) + get_node_count(root->right);
 }
+
+void delete_tree(Node** root) {
+    if(*root == NULL) {
+        return;
+    }
+    delete_tree(&(*root)->left);
+    delete_tree(&(*root)->right);
+    *root = NULL;
+    free(*root);
+}

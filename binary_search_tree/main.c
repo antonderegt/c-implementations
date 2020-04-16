@@ -15,5 +15,10 @@ int main() {
 
     assert(get_node_count(bst) == 7);
 
+    delete_tree(&bst);
+    printf("Size: %d\n", get_node_count(bst)); 
+    // print_values(bst);
+    assert(get_node_count(bst) == 0);
+
     return 0;
 }
