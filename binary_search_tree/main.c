@@ -16,6 +16,9 @@ int main() {
     bst = insert(bst, 60);
     print_values(bst);
 
+    assert(get_successor(bst, 30) == 40);
+    assert(get_successor(bst, 70) == -1);
+
     assert(get_node_count(bst) == 7);
 
     assert(is_in_tree(bst, 70) == true);

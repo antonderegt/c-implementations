@@ -23,6 +23,6 @@ int get_min(Node* root); // returns the minimum value stored in the tree
 int get_max(Node* root); // returns the maximum value stored in the tree
 bool is_binary_search_tree();
 Node* delete_value(Node* root, int value);
-int get_successor(); // returns next-highest value in tree after given value, -1 if none
+int get_successor(Node* root, int value); // returns next-highest value in tree after given value, -1 if none
 
 #endif

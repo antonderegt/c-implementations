@@ -141,3 +141,20 @@ Node* delete_value(Node* root, int value) {
 
     return root;
 } 
+
+int get_successor(Node* root, int value) {
+    if(root == NULL) {
+        printf("Tree is empty, can't find successor in empty trees.\n");
+        return -1;
+    } else if (value < root->value) {
+        return get_successor(root->left, value);
+    } else if(value > root->value) {
+        return get_successor(root->right, value);
+    }
+    
+    if(root->right == NULL) {
+        printf("No successor.\n");
+        return -1;
+    }
+    return get_min(root->right);
+}
