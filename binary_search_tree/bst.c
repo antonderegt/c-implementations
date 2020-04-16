@@ -77,3 +77,14 @@ int get_min(Node* root) {
 
     return root->value;
 }
+
+int get_max(Node* root) {
+    if(root == NULL) {
+        printf("Tree is empty, can't get max of empty trees.\n");
+        return -1;
+    } else if(root->right != NULL) {
+        return get_max(root->right);
+    } 
+
+    return root->value;
+}

@@ -5,6 +5,7 @@ int main() {
     Node* bst = NULL;
 
     assert(get_min(bst) == -1);
+    assert(get_max(bst) == -1);
     print_values(bst);
     bst = insert(bst, 20);
     bst = insert(bst, 10);
@@ -21,6 +22,7 @@ int main() {
     assert(is_in_tree(bst, 99) == false);
 
     assert(get_min(bst) == 10);
+    assert(get_max(bst) == 70);
 
     delete_tree(&bst);
     print_values(bst);

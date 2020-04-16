@@ -20,7 +20,7 @@ void delete_tree(Node** root);
 bool is_in_tree(Node* root, int value); // returns true if given value exists in the tree
 int get_height(); // returns the height in nodes (single node's height is 1)
 int get_min(Node* root); // returns the minimum value stored in the tree
-int get_max(); // returns the maximum value stored in the tree
+int get_max(Node* root); // returns the maximum value stored in the tree
 bool is_binary_search_tree();
 void delete_value();
 int get_successor(); // returns next-highest value in tree after given value, -1 if none
