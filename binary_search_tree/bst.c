@@ -99,3 +99,17 @@ int get_height(Node* root) {
     } 
     return 1 + max(get_node_count(root->left), get_node_count(root->right));
 }
+
+void delete_value(Node* root, int value) {
+    if(root == NULL) {
+        printf("Value %d not in tree.\n", value);
+        return;
+    }
+
+    if(root->value == value) {
+        if(root->left == NULL && root->right == NULL) {
+            root = NULL;
+            free(root);
+        }
+    }
+} 
