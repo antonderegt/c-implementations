@@ -65,3 +65,16 @@ bool is_in_tree(Node* root, int value) {
 
     return 0 + is_in_tree(root->left, value) + is_in_tree(root->right, value);
 }
+
+int get_min(Node* root) {
+    if(root == NULL) {
+        printf("The tree is empty...\n");
+        return -1;
+    } else if(root->left != NULL) {
+        return get_min(root->left);
+    } 
+    // else {
+    //     return root->value;
+    // }
+    return root->value;
+}
