@@ -32,10 +32,11 @@ void print_values_helper(Node* root) {
 
 void print_values(Node* root) {
     if(root == NULL) {
-        printf("The tree is empty...\n");
+        printf("Tree is empty, can't print empty trees.\n");
     } else {
-        printf("Printing the tree:\n");
+        printf("\nPrinting the tree:\n");
         print_values_helper(root);
+        printf("\n");
     }
 }
 
@@ -68,13 +69,11 @@ bool is_in_tree(Node* root, int value) {
 
 int get_min(Node* root) {
     if(root == NULL) {
-        printf("The tree is empty...\n");
+        printf("Tree is empty, can't get min of empty trees.\n");
         return -1;
     } else if(root->left != NULL) {
         return get_min(root->left);
     } 
-    // else {
-    //     return root->value;
-    // }
+
     return root->value;
 }
