@@ -16,10 +16,14 @@ int main() {
 
     assert(get_node_count(bst) == 7);
 
+    assert(is_in_tree(bst, 70) == true);
+    assert(is_in_tree(bst, 99) == false);
+
     delete_tree(&bst);
     printf("Size: %d\n", get_node_count(bst)); 
     print_values(bst);
     assert(get_node_count(bst) == 0);
+
 
     return 0;
 }

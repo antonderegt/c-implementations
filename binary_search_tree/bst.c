@@ -55,3 +55,13 @@ void delete_tree(Node** root) {
     *root = NULL;
     free(*root);
 }
+
+bool is_in_tree(Node* root, int value) {
+    if(root == NULL) {
+        return 0;
+    } else if(root->value == value) {
+        return 1;
+    }
+
+    return 0 + is_in_tree(root->left, value) + is_in_tree(root->right, value);
+}
