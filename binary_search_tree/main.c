@@ -13,5 +13,7 @@ int main() {
     bst = insert(bst, 60);
     print_values(bst);
 
+    assert(get_node_count(bst) == 7);
+
     return 0;
 }

@@ -29,3 +29,10 @@ void print_values(Node* root) {
         print_values(root->right);
     }
 }
+
+int get_node_count(Node* root) {
+    if(root == NULL) {
+        return 0;
+    } 
+    return 1 + get_node_count(root->left) + get_node_count(root->right);
+}
