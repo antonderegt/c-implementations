@@ -182,3 +182,19 @@ int get_successor(Node* root, int value) {
         }
     }
 }
+
+bool is_bst(Node* root, int min, int max) {
+    if(root == NULL) return true;
+
+    if(root->value > min && root->value < max 
+       && is_bst(root->left, min, root->value)
+       && is_bst(root->right, root->value, max) ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool is_binary_search_tree(Node* root) {
+    return is_bst(root, INT_MIN, INT_MAX);
+}
