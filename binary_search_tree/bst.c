@@ -142,19 +142,43 @@ Node* delete_value(Node* root, int value) {
     return root;
 } 
 
-int get_successor(Node* root, int value) {
+Node* find(Node* root, int value) {
     if(root == NULL) {
-        printf("Tree is empty, can't find successor in empty trees.\n");
-        return -1;
-    } else if (value < root->value) {
-        return get_successor(root->left, value);
+        printf("Value not in tree.\n");
+        return NULL;
+    }
+
+    if(value < root->value) {
+        return find(root->left, value);
     } else if(value > root->value) {
-        return get_successor(root->right, value);
+        return find(root->right, value);
+    } else {
+        return root;
     }
-    
-    if(root->right == NULL) {
-        printf("No successor.\n");
-        return -1;
+}
+
+int get_successor(Node* root, int value) {
+    Node* current = find(root, value);
+
+    if(current == NULL) return -1;
+
+    if(current->right != NULL) {
+        return get_min(current->right);
+    } else {
+        Node* successor = NULL;
+        Node* ancestor = root;
+        while(ancestor != current) {
+            if(current->value < ancestor->value) {
+                successor = ancestor;
+                ancestor = ancestor->left;
+            } else {
+                ancestor = ancestor->right;
+            }
+        }
+        if(successor != NULL) {
+            return successor->value;
+        } else {
+            return -1;
+        }
     }
-    return get_min(root->right);
 }

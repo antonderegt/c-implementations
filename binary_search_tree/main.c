@@ -18,6 +18,7 @@ int main() {
 
     assert(get_successor(bst, 30) == 40);
     assert(get_successor(bst, 70) == -1);
+    assert(get_successor(bst, 99) == -1);
 
     assert(get_node_count(bst) == 7);
 

@@ -16,4 +16,4 @@ cc main.c bst.c && ./a.out
 - [X] get_max // returns the maximum value stored in the tree
 - [ ] is_binary_search_tree
 - [X] delete_value
-- [ ] get_successor // returns next-highest value in tree after given value, -1 if none
+- [X] get_successor // returns next-highest value in tree after given value, -1 if none
