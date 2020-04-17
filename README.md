@@ -7,3 +7,4 @@ In this repo I implemented all data structures and algorithms mentioned in [Codi
 - Queue
 - Hash Table
 - Binary Search
+- Binary Search Tree
