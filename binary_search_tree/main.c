@@ -30,6 +30,8 @@ int main() {
 
     assert(get_height(bst) == 6);
 
+    assert(is_binary_search_tree(bst) == true);
+
     bst = delete_value(bst, 60);
     bst = delete_value(bst, 50);
     bst = delete_value(bst, 70);
