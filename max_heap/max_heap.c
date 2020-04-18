@@ -12,23 +12,24 @@ void sift_up(int* heap, int index) {
 }
 
 void insert(int* heap, int value) {
-    if(*heap == 0) {
-        *heap = 1;
-        *(heap + 1) = value;
+    if(heap[0] == 0) {
+        heap[0] = 1;
+        heap[1] = value;
     } else {
-        (*heap)++;
-        *(heap + (*heap)) = value;
-        sift_up(heap, *heap);
+        heap[0]++;
+        int size = heap[0];
+        heap[size] = value;
+        sift_up(heap, size);
     }
 }
 
 void print_heap(int* heap) {
     if(heap[0] == 0) return;
-    printf("Printing heap:\n\n");
-    for(int i = 1; i < heap[0]; i++) {
+    printf("Printing heap:\n");
+    for(int i = 1; i <= heap[0]; i++) {
         printf("%d\t", heap[i]);
     }
-    printf("\n");
+    printf("\n\n");
 }
 
 int get_max(int* heap) {

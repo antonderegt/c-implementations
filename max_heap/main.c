@@ -8,13 +8,9 @@ int main() {
     assert(is_empty(heap) == true);
 
     insert(heap, 5);
-    print_heap(heap);
     insert(heap, 9);
-    print_heap(heap);
     insert(heap, 1);
-    print_heap(heap);
     insert(heap, 2);
-    print_heap(heap);
     insert(heap, 15);
 
     print_heap(heap);
