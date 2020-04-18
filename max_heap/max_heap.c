@@ -29,7 +29,7 @@ void print_heap(int* heap) {
     for(int i = 1; i <= heap[0]; i++) {
         printf("%d\t", heap[i]);
     }
-    printf("\n\n");
+    printf("\n");
 }
 
 int get_max(int* heap) {
@@ -52,7 +52,7 @@ void sift_down(int* heap, int index) {
     if(heap[0] > index * 2) {
         int left = 2 * index;
         int right = 2 * index + 1;
-        int biggestChild = max(heap[left], heap[right]);
+        int biggestChild =  max(heap[left], heap[right]) == heap[left] ? left : right;
         if(heap[index] < heap[biggestChild]) {
             int temp = heap[index];
             heap[index] = heap[biggestChild];
@@ -89,4 +89,21 @@ void remove_node(int* heap, int index) {
     heap[index] = heap[size]; 
     heap[0] = size - 1;
     sift_down(heap, index);
+}
+
+void heapify(int* heap, int* unsorted, int size) {
+    for(int i = 0; i < size; i++) {
+        insert(heap, unsorted[i]);
+    }
+}
+
+void heap_sort(int* unsorted, int* sorted, int size) {
+    int heap[size+1];
+    heap[0] = 0;
+
+    heapify(heap, unsorted, size);
+
+    for(int i = 0; i < size; i++) {
+        sorted[i] = extract_max(heap);
+    }
 }

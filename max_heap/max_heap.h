@@ -12,8 +12,8 @@ bool is_empty(int* heap); // returns true if heap contains no elements
 int extract_max(int* heap); // returns the max item, removing it
 void sift_down(); // needed for extract_max
 void remove_node(int* heap, int index); // removes item at index x
-void heapify(); // create a heap from an array of elements, needed for heap_sort
-void heap_sort(); // take an unsorted array and turn it into a sorted array in-place using a max heap
+void heapify(int* heap, int* arr, int arrSize); // create a heap from an array of elements, needed for heap_sort
+void heap_sort(int* unsorted, int* sorted, int size); // take an unsorted array and turn it into a sorted array in-place using a max heap
             // note: using a min heap instead would save operations, but double the space needed (cannot do in-place).
 
 
