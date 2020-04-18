@@ -37,3 +37,7 @@ int get_max(int* heap) {
 int get_size(int* heap) {
     return heap[0];
 }
+
+bool is_empty(int* heap) {
+    return !heap[0];
+}

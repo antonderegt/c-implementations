@@ -5,6 +5,7 @@
 int main() {
     int heap[100];
     heap[0] = 0;
+    assert(is_empty(heap) == true);
 
     insert(heap, 5);
     insert(heap, 9);
@@ -16,5 +17,6 @@ int main() {
 
     assert(get_max(heap) == 15);
     assert(get_size(heap) == 5);
+    assert(is_empty(heap) == false);
     return 0;
 }
