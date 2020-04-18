@@ -29,3 +29,7 @@ void print_heap(int* heap) {
     }
     printf("\n");
 }
+
+int get_max(int* heap) {
+    return heap[1];
+}

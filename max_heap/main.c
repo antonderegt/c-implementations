@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <assert.h>
 #include "max_heap.h"
 
 int main() {
@@ -12,5 +13,7 @@ int main() {
     insert(heap, 15);
 
     print_heap(heap);
+
+    assert(get_max(heap) == 15);
     return 0;
 }
