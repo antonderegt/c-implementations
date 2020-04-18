@@ -1,7 +1,15 @@
 #include "bst.h"
 
+void check_pointer(void* node) {
+    if(node == NULL) {
+        printf("Malloc failed\n");
+        exit(EXIT_FAILURE);
+    }
+}
+
 Node* newNode(int value) {
     Node* node = malloc(sizeof(Node));
+    check_pointer(node);
     node->value = value;
     node->left = node->right = NULL;
     return node;
