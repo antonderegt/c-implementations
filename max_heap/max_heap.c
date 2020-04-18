@@ -33,3 +33,7 @@ void print_heap(int* heap) {
 int get_max(int* heap) {
     return heap[1];
 }
+
+int get_size(int* heap) {
+    return heap[0];
+}

@@ -5,7 +5,7 @@ void insert(int* heap, int value);
 void sift_up(int* heap, int index); // needed for insert
 void print_heap(int* heap);
 int get_max(int* heap); // returns the max item, without removing it
-void get_size(); // return number of elements stored
+int get_size(int* heap); // return number of elements stored
 void is_empty(); // returns true if heap contains no elements
 void extract_max(); // returns the max item, removing it
 void sift_down(); // needed for extract_max

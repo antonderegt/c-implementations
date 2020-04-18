@@ -15,5 +15,6 @@ int main() {
     print_heap(heap);
 
     assert(get_max(heap) == 15);
+    assert(get_size(heap) == 5);
     return 0;
 }
