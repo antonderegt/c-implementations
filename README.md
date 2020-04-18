@@ -8,3 +8,4 @@ In this repo I implemented all data structures and algorithms mentioned in [Codi
 - Hash Table
 - Binary Search
 - Binary Search Tree
+- Max Heap
