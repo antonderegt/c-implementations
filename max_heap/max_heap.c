@@ -49,14 +49,24 @@ int max(int a, int b) {
 }
 
 void sift_down(int* heap, int index) {
-    int left = 2 * index;
-    int right = 2 * index + 1;
-    int biggestChild = max(heap[left], heap[right]);
-    if(heap[index] < heap[biggestChild]) {
-        int temp = heap[index];
-        heap[index] = heap[biggestChild];
-        heap[biggestChild] = temp;
-        sift_down(heap, biggestChild);
+    if(heap[0] > index * 2) {
+        int left = 2 * index;
+        int right = 2 * index + 1;
+        int biggestChild = max(heap[left], heap[right]);
+        if(heap[index] < heap[biggestChild]) {
+            int temp = heap[index];
+            heap[index] = heap[biggestChild];
+            heap[biggestChild] = temp;
+            sift_down(heap, biggestChild);
+        }
+    } else if (heap[0] >= index * 2) {
+        int left = 2 * index;
+        if(heap[index] < heap[left]) {
+            int temp = heap[index];
+            heap[index] = heap[left];
+            heap[left] = temp;
+            sift_down(heap, left);
+        }
     }
 }
 
@@ -73,11 +83,10 @@ int extract_max(int* heap) {
 }
 
 void remove_node(int* heap, int index) {
-    if(heap[0] == 0 || index > heap[0]) return;
-    printf("size: %d, index: %d\n", heap[0], index);
-
     int size = heap[0];
+    if(size == 0 || index > size) return;
+
     heap[index] = heap[size]; 
-    heap[0]--;
+    heap[0] = size - 1;
     sift_down(heap, index);
 }

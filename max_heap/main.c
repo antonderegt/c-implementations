@@ -15,15 +15,18 @@ int main() {
 
     print_heap(heap);
 
+    remove_node(heap, 2);
+    assert(get_size(heap) == 4);
+    print_heap(heap);
+
     assert(get_max(heap) == 15);
-    assert(get_size(heap) == 5);
+    assert(get_size(heap) == 4);
     assert(is_empty(heap) == false);
 
-    assert(extract_max(heap) == 15);
     assert(get_size(heap) == 4);
+    assert(extract_max(heap) == 15);
+    assert(get_size(heap) == 3);
 
-    // remove_node(heap, 2);
-    // assert(get_size(heap) == 3);
 
     return 0;
 }
