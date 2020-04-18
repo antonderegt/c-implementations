@@ -23,6 +23,7 @@ void insert(int* heap, int value) {
 }
 
 void print_heap(int* heap) {
+    if(heap[0] == 0) return;
     printf("Printing heap:\n\n");
     for(int i = 1; i < heap[0]; i++) {
         printf("%d\t", heap[i]);
@@ -64,10 +65,18 @@ int extract_max(int* heap) {
     }
 
     int max = heap[1];
-    int size = heap[0];
-    heap[1] = heap[size]; 
-    heap[0]--;
-    sift_down(heap, 1);
+
+    remove_node(heap, 1);
 
     return max;
+}
+
+void remove_node(int* heap, int index) {
+    if(heap[0] == 0 || index > heap[0]) return;
+    printf("size: %d, index: %d\n", heap[0], index);
+
+    int size = heap[0];
+    heap[index] = heap[size]; 
+    heap[0]--;
+    sift_down(heap, index);
 }
