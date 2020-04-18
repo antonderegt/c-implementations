@@ -18,5 +18,9 @@ int main() {
     assert(get_max(heap) == 15);
     assert(get_size(heap) == 5);
     assert(is_empty(heap) == false);
+
+    assert(extract_max(heap) == 15);
+    assert(get_size(heap) == 4);
+
     return 0;
 }

@@ -41,3 +41,33 @@ int get_size(int* heap) {
 bool is_empty(int* heap) {
     return !heap[0];
 }
+
+int max(int a, int b) {
+    return a > b ? a : b;
+}
+
+void sift_down(int* heap, int index) {
+    int left = 2 * index;
+    int right = 2 * index + 1;
+    int biggestChild = max(heap[left], heap[right]);
+    if(heap[index] < heap[biggestChild]) {
+        int temp = heap[index];
+        heap[index] = heap[biggestChild];
+        heap[biggestChild] = temp;
+        sift_down(heap, biggestChild);
+    }
+}
+
+int extract_max(int* heap) {
+    if(heap[0] == 0) {
+        return 0;
+    }
+
+    int max = heap[1];
+    int size = heap[0];
+    heap[1] = heap[size]; 
+    heap[0]--;
+    sift_down(heap, 1);
+
+    return max;
+}

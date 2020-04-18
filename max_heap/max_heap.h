@@ -9,7 +9,7 @@ void print_heap(int* heap);
 int get_max(int* heap); // returns the max item, without removing it
 int get_size(int* heap); // return number of elements stored
 bool is_empty(int* heap); // returns true if heap contains no elements
-void extract_max(); // returns the max item, removing it
+int extract_max(int* heap); // returns the max item, removing it
 void sift_down(); // needed for extract_max
 void removeNode(int i); // removes item at index x
 void heapify(); // create a heap from an array of elements, needed for heap_sort
