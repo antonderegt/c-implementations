@@ -6,6 +6,7 @@ cc main.c merge_sort.c && ./a.out
 ```
 
 ## Functionality
-- [ ] print_array
-- [ ] merge_sort // splits arrays and calls merge
-- [ ] merge // merges sub arrays
+- [X] print_array
+- [X] merge_sort // calls the merge routine
+- [X] merge_split // splits array and calls merge
+- [X] merge // merges sub arrays
