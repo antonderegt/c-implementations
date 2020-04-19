@@ -1,12 +1,13 @@
 #include "merge_sort.h"
 
 int main() {
-    int unsorted[] = {12,54,13,67,41,34,5,8,52,234};
-    int size = sizeof(unsorted) / sizeof(unsorted[0]);
-    int sorted[size];
+    int array[] = {12,54,13,67,34,5,8,52,234, -10};
+    int size = sizeof(array) / sizeof(array[0]);
 
-    merge_sort(unsorted, 0, size - 1);
+    print_array(array, size);
 
-    print_array(unsorted, size);
+    merge_sort(array, size);
+
+    print_array(array, size);
     return 0;
 }
