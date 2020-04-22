@@ -2,5 +2,5 @@
 #include <stdlib.h>
 #include <time.h>
 
-void print_array(int* array, int size);
-void quick_sort(int* array, int size);
+void print_array(int* numbers, int size);
+void quick_sort(int* numbers, int size);
