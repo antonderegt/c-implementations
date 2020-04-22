@@ -7,7 +7,9 @@ cc main.c hash_table.c && ./a.out
 
 ## ToDo
 
-- Improve hash function
+- Improve hash function, modding with a prime number works, but is not the best
+    - Multiplication Method
+    - Universal Hashing
 
 ## Functionality
 
