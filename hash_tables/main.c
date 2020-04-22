@@ -4,7 +4,8 @@
 
 int main() {
 
-    hashTable *h = initHashTable(999);
+    int tableSize = 997; // prime
+    hashTable *h = initHashTable(tableSize);
 
     // Add key value pair to hash table
     add(h, "Stad", "Ams");
