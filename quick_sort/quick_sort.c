@@ -1,42 +1,57 @@
 #include "quick_sort.h"
 
-void print_array(int* array, int size) {
+void print_array(int* numbers, int size) {
     for(int i = 0; i < size; i++) {
-        printf("%d ", array[i]);
+        printf("%d ", numbers[i]);
     }
     printf("\n");
 }
-void swap(int* array, int low, int high) {
-    int temp = array[low];
-    array[low] = array[high];
-    array[high] = temp;
+void swap(int* numbers, int low, int high) {
+    int temp = numbers[low];
+    numbers[low] = numbers[high];
+    numbers[high] = temp;
 }
 
-void partition(int* array, int low, int high) {
-    if(high - low <= 2) return;
+void partition(int* numbers, int low, int high) {
+    if(low == high) return;
 
-    int mid = low + (high - low) / 2;
-    int pivot = array[mid], i = low, j = high - 1;
-    printf("Pivot: %d selected, moving it to the end\n", pivot);
-    swap(array, mid, high);
-    print_array(array, 10);
+    int pivotIndex = rand() % (high - low + 1);
+    int pivot = numbers[low + pivotIndex];
+    int i = low, j = high;
+
     while(i < j) {
-        while(array[i] < pivot) {
-            i++;
-        }
-        while(array[j] > pivot && i < j) {
-            j--;
-        }
+        while (numbers[i] < pivot) ++i;
+        while (numbers[j] > pivot) --j;
 
-        // printf("i: %d - %d, j: %d - %d\n", i, array[i], j, array[j]);
-        swap(array, i, j);
+        if(i <= j) {
+            swap(numbers, i, j);
+            i++;j--;
+        }
     }
-    swap(array, i, high);
-    // print_array(array, 10);
-    partition(array, low, mid + 1);
-    partition(array, mid + 1, high);
+    if (low < j) {
+        partition(numbers, low, j);
+    }
+
+    if (high > i) {
+        partition(numbers, i, high);
+    }
 }
 
-void quick_sort(int* array, int size) {
-    partition(array, 0, size - 1);
+void shuffle(int* a, int n) {
+    int i;
+    int r;
+    int temp;
+
+    for(i = n - 1; i > 0; i--) {
+        r = rand() % i;
+        temp = a[r];
+        a[r] = a[i];
+        a[i] = temp;
+    }
+}
+
+void quick_sort(int* numbers, int size) {
+    srand((unsigned)time(NULL));
+    shuffle(numbers, size);
+    partition(numbers, 0, size - 1);
 }

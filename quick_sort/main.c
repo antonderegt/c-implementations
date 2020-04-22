@@ -1,7 +1,7 @@
 #include "quick_sort.h"
 
 int main() {
-    int array[] = {12,54,13,67,34,5,8,52,234, -10};
+    int array[] = {5, 86, 69, 73, 11, 17, 1, 74, 34, 3};
     int size = sizeof(array) / sizeof(array[0]);
 
     print_array(array, size);
