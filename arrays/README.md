@@ -5,10 +5,6 @@
 cc main.c vector.c && ./a.out
 ```
 
-## ToDo
-
-- Use pointer arithmatic instead of array indexing
-
 ## Functionality
 - [X] new raw data array with allocated memory
     - can allocate int array under the hood, just not use its features

@@ -31,7 +31,7 @@ bool isEmpty(vector *v) {
 
 int at(vector *v, int index) {
     if(index < v->size) {
-        return v->array[index];
+        return *(v->array + index);
     } else {
         return -1;
     }
@@ -39,7 +39,8 @@ int at(vector *v, int index) {
 
 void push(vector *v, int item) {
     if(v->size < v->capacity) {
-        v->array[v->size++] = item;
+        int size = v->size++;
+        *(v->array + size) = item;
     } else {
         resize(v, v->capacity * 2);
         push(v, item);
@@ -52,7 +53,8 @@ void resize(vector *v, int newCapacity){
 }
 
 int pop(vector *v) {
-    int popValue = v->array[--v->size];
+    int size = --v->size;
+    int popValue = *(v->array + size);
     if(v->size <= (v->capacity/4) && v->size/2 >= minCapacity) {
         resize(v, v->size/2);
     }
@@ -62,9 +64,9 @@ int pop(vector *v) {
 void insert(vector *v, int index, int item) {
     if(v->size < v->capacity) {
         for(int i = v->size; i > index; i--) {
-            v->array[i] = v->array[i-1];
+            *(v->array + i) = *(v->array + i - 1);
         }
-        v->array[index] = item;
+        *(v->array + index) = item;
         v->size++;
     } else {
         resize(v, v->capacity * 2);
@@ -82,7 +84,7 @@ void deleteAt(vector *v, int index) {
     } 
     else if(index < v->size) {
         for(int i = index; i < v->size-1; i++) {
-            v->array[i] = v->array[i+1];
+            *(v->array + i) = *(v->array + i + 1);
         }
         v->size--;
         if(v->size <= (v->capacity/4) && v->size/2 >= minCapacity) {
@@ -93,7 +95,7 @@ void deleteAt(vector *v, int index) {
 
 int find(vector *v, int item) {
     for(int i = 0; i < v->size; i++) {
-        if (v->array[i] == item) {
+        if (*(v->array + i) == item) {
             return i;
         }
     }
