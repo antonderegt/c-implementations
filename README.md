@@ -10,3 +10,4 @@ In this repo I implemented all data structures and algorithms mentioned in [Codi
 - Binary Search Tree
 - Max Heap
 - Quicksort
+- Merge Sort
